@@ -149,8 +149,8 @@ export const baseSshClient = async (
       host: hostname,
       port,
       privateKey: clientPrivateKey,
-      keepaliveInterval: 15000,
-      keepaliveCountMax: 3,
+      keepaliveInterval: 60000,
+      keepaliveCountMax: 10,
       hostVerifier,
     })
   })

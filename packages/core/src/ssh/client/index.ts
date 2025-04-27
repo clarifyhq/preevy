@@ -20,6 +20,9 @@ export const connectSshClient = async (
         ...connectConfig.algorithms,
         compress: connectConfig.algorithms?.compress ?? ['zlib@openssh.com', 'zlib', 'none'],
       },
+      // Add keepalive options to prevent SSH timeouts during long builds
+      keepaliveInterval: 60000, // 60 seconds
+      keepaliveCountMax: 10, 
       ...connectConfig,
       debug: debug ? log.debug : undefined,
     })
